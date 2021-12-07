@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TileNavigation.ViewModels"
+             x:Class="TileNavigation.Views.MenuTiledScrollView">
+    <ContentPage.BindingContext>
+        <local:MenuTiledScrollViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="Black">
+            <Grid x:Name="MainGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.33*" />
+                    <ColumnDefinition Width="0.33*" />
+                    <ColumnDefinition Width="0.33*" />
+                </Grid.ColumnDefinitions>
+                <Label WidthRequest="10" HeightRequest="150" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                       BackgroundColor="Black"/>
+                <Button Text="Scan Asset" x:Name="btn1"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="Center" Style="{StaticResource NavButton}"
+            HeightRequest="{Binding Width, Source={x:Reference btn1}}"
+                        Command="{Binding GotoAssetSearch}"
+            Grid.Row="1"
+            Grid.Column="0"/>
+
+                <Button Text="Search Asset"
+            x:Name="btn2"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="Center" Style="{StaticResource NavButton}"
+            WidthRequest="{Binding Width, Source={x:Reference btn1}}"
+            HeightRequest="{Binding Width, Source={x:Reference btn2}}"
+            Grid.Row="1"
+            Grid.Column="1"/>
+
+                <Button Text="In-Progress"
+             x:Name="btn3"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="Center" Style="{StaticResource NavButton}"
+            WidthRequest="{Binding Width, Source={x:Reference btn1}}"
+            HeightRequest="{Binding Width, Source={x:Reference btn3}}"
+            Grid.Row="1"
+            Grid.Column="2"/>
+
+                <Button Text="Logout"
+            x:Name="btn4"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="Center" Style="{StaticResource NavButton}"
+                    WidthRequest="{Binding Width, Source={x:Reference btn1}}"
+            HeightRequest="{Binding Width, Source={x:Reference btn4}}"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"/>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

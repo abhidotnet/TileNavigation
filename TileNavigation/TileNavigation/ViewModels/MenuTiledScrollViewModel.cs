@@ -15,7 +15,8 @@ namespace TileNavigation.ViewModels
 
         async void PerformGotoAssetSearch()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new NavigationPage(new AssetSearch()));
+            await Application.Current.MainPage.Navigation.PushAsync(new AssetSearch());
+            //await Shell.Current.GoToAsync("AssetSearch");
         }
     }
 }

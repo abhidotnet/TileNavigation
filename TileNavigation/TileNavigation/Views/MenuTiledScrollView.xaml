@@ -21,7 +21,7 @@
                 </Grid.ColumnDefinitions>
                 <Label WidthRequest="10" HeightRequest="150" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
                        BackgroundColor="Black"/>
-                <Button Text="Scan Asset" x:Name="btn1"
+                <Button Text="Scan Barcode" x:Name="btn1"
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="Center" Style="{StaticResource NavButton}"
             HeightRequest="{Binding Width, Source={x:Reference btn1}}"
@@ -29,7 +29,7 @@
             Grid.Row="1"
             Grid.Column="0"/>
 
-                <Button Text="Search Asset"
+                <Button Text="Unit Search"
             x:Name="btn2"
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="Center" Style="{StaticResource NavButton}"
@@ -38,7 +38,7 @@
             Grid.Row="1"
             Grid.Column="1"/>
 
-                <Button Text="In-Progress"
+                <Button Text="Pending Ins"
              x:Name="btn3"
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="Center" Style="{StaticResource NavButton}"

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TileNavigation.ViewModels"
+             x:Class="TileNavigation.Views.AssetSearchView">
+    <ContentPage.BindingContext>
+        <local:AssetSearchViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout>
+
+        <StackLayout RadioButtonGroup.GroupName="{Binding SearchGroupName}"
+        RadioButtonGroup.SelectedValue="{Binding SearchSelection}">
+            <Label Text="Search By" BackgroundColor="Black" TextColor="BlanchedAlmond"/>
+            <Grid BackgroundColor="Beige">
+                <RadioButton Grid.Row="0" Grid.Column="0" Content="Asset Class" Value="AssetClass" />
+                <RadioButton Grid.Row="0" Grid.Column="1" Content="Unit Number" Value="UnitNumber"/>
+                <RadioButton Grid.Row="1" Grid.Column="0" Content="Serial Number" Value="SerialNumber" />
+                <RadioButton Grid.Row="1" Grid.Column="1" Content="Org" Value="Org"
+                 IsChecked="True" />
+            </Grid>
+        </StackLayout>
+        <SearchBar Placeholder="Search items..."
+           CancelButtonColor="Orange"
+           PlaceholderColor="Orange"
+           TextColor="Orange"
+           TextTransform="Lowercase"
+           HorizontalTextAlignment="Center"
+           FontSize="Medium"
+           FontAttributes="Italic" 
+                   TextChanged="SearchBar_TextChanged"/>
+        <Label x:Name="animalLabel">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="You have chosen:" />
+                    <Span Text="{Binding SearchSelection}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <ListView x:Name="searchResults">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="#eee"
+                        Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding AssetId}"
+                                TextColor="#f35e20" />
+                                <Label Text="{Binding AssetClass}"
+                                HorizontalOptions="CenterAndExpand"
+                                TextColor="#503026" />
+                                <Label Text="{Binding SerialNumber}"
+                                HorizontalOptions="CenterAndExpand"
+                                TextColor="#503026" />
+                                <Label Text="{Binding Location}"
+                                TextColor="#f35e20" HorizontalOptions="End"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

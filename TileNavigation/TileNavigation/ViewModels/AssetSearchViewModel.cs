@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using TileNavigation.Services;
+using TileNavigation.Views;
 
 
 namespace TileNavigation.ViewModels
@@ -53,12 +54,23 @@ namespace TileNavigation.ViewModels
                 OnPropertyChanged();
             }
         }
+
+
+
     }
+
+
     public class Asset
     {
         public int AssetId { get; set; }
         public string AssetClass { get; set; }
         public string Location { get; set; }
         public string SerialNumber { get; set; }
+        public ICommand GotoVerifyBuilding => new Command(GotoVerifyBuildingPage);
+
+        private void GotoVerifyBuildingPage()
+        {
+            Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={AssetId}");
+        }
     }
 }

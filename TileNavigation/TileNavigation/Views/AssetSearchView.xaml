@@ -44,7 +44,11 @@
                         Orientation="Vertical">
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="{Binding AssetId}"
-                                TextColor="#f35e20" />
+                                TextColor="#f35e20">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding GotoVerifyBuilding}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
                                 <Label Text="{Binding AssetClass}"
                                 HorizontalOptions="CenterAndExpand"
                                 TextColor="#503026" />

@@ -51,7 +51,7 @@ namespace TileNavigation.ViewModels
         {
             Item newItem = new Item()
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = 0,
                 Text = Text,
                 Description = Description
             };

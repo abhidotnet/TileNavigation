@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Diagnostics;
 using TileNavigation.ViewModels;
 using TileNavigation.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Windows.Input;
 
 namespace TileNavigation.Views
 {
@@ -27,5 +29,8 @@ namespace TileNavigation.Views
             searchResults.ItemsSource = DataService.GetSearchResults(e.NewTextValue);
 
         }
+
+        
+
     }
 }

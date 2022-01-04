@@ -14,12 +14,12 @@ namespace TileNavigation.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                new Item { Id = 1231, Text = "1231 item", Description="Asset 1231 Details Displayed here.", StateSeal="FL;PA;CO", BldgOverHeight=true, BoxSize="12x48", SerialNo="TESTSERIAL001", StorageYard="Jacksonville, FL"},
+                new Item { Id = 1232, Text = "1232 item", Description="Asset 1232 Details Displayed here", StateSeal="FL;PA;CO", BldgOverHeight=true, BoxSize="12x48", SerialNo="TESTSERIAL001", StorageYard="California, PA" },
+                new Item { Id = 2236, Text = "2236 item", Description="Asset 2236 Details Displayed here", StateSeal="FL;PA;CO", BldgOverHeight=true, BoxSize="12x48", SerialNo="TESTSERIAL001", StorageYard="Miami, FL" },
+                new Item { Id = 2235, Text = "2235 item", Description="Asset 2235 Details Displayed here", StateSeal="FL;PA;CO", BldgOverHeight=true, BoxSize="12x48", SerialNo="TESTSERIAL001", StorageYard="Paris, TX" },
+                new Item { Id = 1234, Text = "1234 item", Description="Asset 1234 Details Displayed here", StateSeal="FL;PA;CO", BldgOverHeight=true, BoxSize="12x48", SerialNo="TESTSERIAL001", StorageYard="Perris, CA" },
+                new Item { Id = 1233, Text = "1233 item", Description="Asset 1233 Details Displayed here", StateSeal="FL;PA;CO", BldgOverHeight=true, BoxSize="12x48", SerialNo="TESTSERIAL001", StorageYard="Jacksonville, FL" }
             };
         }
 
@@ -39,7 +39,7 @@ namespace TileNavigation.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteItemAsync(int id)
         {
             var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
             items.Remove(oldItem);
@@ -47,7 +47,7 @@ namespace TileNavigation.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<Item> GetItemAsync(int id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }

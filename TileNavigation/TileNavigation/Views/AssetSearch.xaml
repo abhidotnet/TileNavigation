@@ -23,7 +23,6 @@
             HeightRequest="{Binding Width, Source={x:Reference btn1}}"
             Grid.Row="0"
             Grid.Column="0"/>
-
                 <Button Text="By Serial Number"
             x:Name="btn2"
             VerticalOptions="CenterAndExpand"
